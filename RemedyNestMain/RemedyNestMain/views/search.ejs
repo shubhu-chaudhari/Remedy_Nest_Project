@@ -1,0 +1,25 @@
+<h1 class="pb-4">Search Results</h1>
+
+<div class="container" style="max-width: 800px; margin: auto">
+  <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+    <% if(disease != '') { %> <% disease.forEach(function(disease, index){ %>
+    <a
+      href="/disease/<%= disease._id %>"
+      class="col text-center category__link"
+      style="max-width: 300px; margin: auto"
+    >
+      <div class="category__img category__img--large shadow">
+        <img
+          src="/img/<%= disease.image %>"
+          alt="<%= disease.name %>"
+          loading="lazy"
+          style="max-width: 200px; height: auto; display: block; margin: auto"
+        />
+      </div>
+      <div class="pt-1"><%= disease.name %></div>
+    </a>
+    <% }) %> <% } else { %>
+    <p>No items found.</p>
+    <% } %>
+  </div>
+</div>

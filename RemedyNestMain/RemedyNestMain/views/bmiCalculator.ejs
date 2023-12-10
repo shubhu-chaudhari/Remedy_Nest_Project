@@ -1,0 +1,86 @@
+<div class="container mt-5">
+  <h2 class="mb-4">BMI Calculator</h2>
+
+  <form action="/calculateBMI" method="POST">
+    <div class="mb-3">
+      <label for="weight" class="form-label">Weight (in kg)</label>
+      <input
+        type="number"
+        step="0.01"
+        class="form-control"
+        id="weight"
+        name="weight"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="heightFeet" class="form-label">Height (in cm)</label>
+      <input
+        type="number"
+        class="form-control"
+        id="height"
+        name="height"
+        required
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Calculate BMI</button>
+  </form>
+
+  <% if (bmiResult) { %>
+  <div class="mt-5">
+    <h3 style="color: #007bff">Your BMI is: <%= bmiResult %></h3>
+    <% let status = ""; %> <% if (bmiResult < 18.5) { %> <% status =
+    "Underweight"; %> <% } else if (bmiResult < 25) { %> <% status = "Healthy";
+    %> <% } else if (bmiResult < 30) { %> <% status = "Overweight"; %> <% } else
+    { %> <% status = "Obese"; %> <% } %>
+
+    <h4 style="color: #007bff">You are <%= status %></h4>
+
+    <div class="card mt-4" style="width: 18rem">
+      <div class="card-body">
+        <h5 class="card-title">BMI Ranges</h5>
+        <p class="card-text">
+          Below 18.5: Underweight
+          <br />
+          18.5 - 24.9: Healthy
+          <br />
+          25 - 29.9: Overweight
+          <br />
+          30 and above: Obese
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-5">
+    <h4 style="color: #007bff">What's a normal BMI?</h4>
+    <p class="mb-3">
+      A normal BMI is between 18.5 and 25; a person with a BMI between 25 and 30
+      is considered overweight; and a person with a BMI over 30 is considered
+      obese. A person is considered underweight if the BMI is less than 18.5.
+    </p>
+
+    <h4 style="color: #007bff">How to maintain a healthy BMI</h4>
+    <p class="mb-3">
+      Eating your 5 a day of fruit and vegetables will help you take in plenty
+      of good protein and fibre. You can also improve your diet by limiting your
+      salt and sugar intake.
+    </p>
+
+    <p class="mb-3">
+      When it comes to exercise, we recommend that you aim for at least 2.5
+      hours of cardio per week. This can include, jogging, a brisk walk or
+      playing sports.
+    </p>
+    <p class="mb-3">
+      Maintaining a healthy BMI is a key step and remember that is important to
+      stay healthy overall, especially for those who are constantly on the go
+      with a busy lifestyle.
+    </p>
+    <p class="mb-3">
+      Drinking at least 2.5 litres of water a day will also be very helpful for
+      your BMI.
+    </p>
+    <% } %>
+  </div>
+</div>
